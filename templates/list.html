@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} User List {% endblock title %}
+
+{% block content %}
+
+<div class = "jumotron">
+    <p>
+        <table class="table table-striped">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td scope="row">{{user.nom}}</td>
+                    <td>{{user.prenom}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ url_for('add_user', id = user.id) }}">Edit</a> |
+                        <a class="btn btn-sm btn-outline-warning" href="{{ url_for('delete_user', id = user.id) }}">Delete</a>
+                        <a></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </p>
+</div>
+
+{% endblock content %}

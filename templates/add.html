@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} Ajout {% endblock title %}
+
+{% block content %}
+<div class = "jumbotron">
+{% if userId %}
+<h1>
+ Modifier un compte
+</h1>
+{% else %}
+ <h1>
+     Ajout de compte
+ </h1>
+{% endif %}
+
+<p>
+
+</p>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class = "col-sm-4 offset-4">
+        <div class="form-group">
+            {{form.nom.label}}
+            {{ form.nom (class = "form-control") }}
+        </div>
+        <div class="form-group">
+            {{form.prenom.label}}
+            {{ form.prenom(class = "form-control") }}
+        </div>
+        <div class="form-group">
+            {{form.age.label}}
+            {{ form.age (class = "form-control") }}
+        </div>
+        <div class="form-group">
+            {{form.email.label}}
+            {{ form.email (class = "form-control") }}
+        </div>
+        <div class="form-group">
+            {{form.password.label}}
+            {{ form.password (class = "form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.submit (class = "btn btn-primary mt-5") }}
+        </div>
+
+
+    </div>
+</form>
+ 
+</div>
+{% endblock content %}
